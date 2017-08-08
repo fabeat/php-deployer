@@ -1,6 +1,8 @@
-# Docker image for Rsync deployment
+# Docker image for deployment with deployer
  
-This image is mainly used for deployments with Rsync from a docker container in Gitlab.
+This image is mainly used for deployments with the PHP tool [Deployer](https://deployer.org/) using Gitlab.
+
+It includes php, rsync and ssh. The deployer script ist globally available with the command `dep`
  
 The [Gitlab documentation](https://docs.gitlab.com/ee/ci/ssh_keys/README.html#ssh-keys-when-using-the-docker-executor)
 explains how to use SSH keys using the Docker executor. 
@@ -13,4 +15,4 @@ Example usage in `.gitlab-ci.yml`:
       script:
         - "ssh-add <(echo \"$SSH_PRIVATE_KEY\")"
         - ssh-deactivate-key-checking
-        - rsync -av ./www/ user@server:/var/www/
+        - dep deploy production
