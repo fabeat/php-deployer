@@ -2,7 +2,7 @@ FROM php:7-alpine
 
 MAINTAINER Fabian Graßl "fabian.grassl@db-n.com"
 
-ENV DEPLOYER_VERSION=5.1.1
+ENV DEPLOYER_VERSION=5.1.2
 
 
 RUN apk add --no-cache \
